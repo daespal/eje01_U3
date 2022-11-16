@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Iniciar sesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="myForm">
+      <!--Esto es entre corchetes porque esta cambiando-->
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating"> Numero de Control</ion-label>
+            <ion-input formControlName="controlNumber"></ion-input
+          ></ion-item>
+          <div>
+            <ng-container
+              *ngFor="let item of validationMessages['controlNumber']"
+            >
+              <div
+                class="errormessage"
+                *ngIf="(myForm.get('controlNumber').dirty || myForm.get('controlNumber').touched) && myForm.get('controlNumber').hasError(item.type)"
+              >
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating"> Nip</ion-label>
+            <ion-input formControlName="nip"></ion-input
+          ></ion-item>
+          <div>
+            <ng-container *ngFor="let item of validationMessages['nip']">
+              <div
+                class="errormessage"
+                *ngIf="(myForm.get('nip').dirty || myForm.get('nip').touched) && myForm.get('nip').hasError(item.type)"
+              >
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+  <div>
+    <ion-row>
+      <ion-col>
+        <ion-button color="medium" fill="outline">Cancelar</ion-button>
+        <ion-button color="medium" fill="outline">Iniciar sesion</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

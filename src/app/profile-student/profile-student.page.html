@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil de {{students.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="text-align: center">
+    <img [src]="students.photo" />
+    <ion-card-header>
+      <ion-card-title>{{students.name}}</ion-card-title>
+      <ion-card-subtitle>{{students.controlnumber}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-chip color="primary"> <label>{{students.career}}</label> </ion-chip
+      ><br />
+      <label>{{students.curp}}</label><br />
+      <label>{{students.email}}</label><br />
+      <label>{{students.nip}}</label><br />
+      <label>{{students.age}}</label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<!--class="ion-float-rigth"-->>

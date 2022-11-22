@@ -2,6 +2,7 @@ import { Student } from './../models/student';
 import { StudentService } from './../services/student.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-new-student',
@@ -14,7 +15,9 @@ export class NewStudentPage implements OnInit {
   public myForm: FormGroup;
   public validationMessages: Object; //para el mensajito del error 
 
-  constructor(private studentService:StudentService, private fB:FormBuilder) { }
+
+
+  constructor(private studentService:StudentService, private fB:FormBuilder,private alertController: AlertController) { }
 
   ngOnInit() {
     this.myForm = this.fB.group({
@@ -42,9 +45,28 @@ export class NewStudentPage implements OnInit {
     }
   }
 
+  public capturarNumeroControl( event: any ):string{
+    console.log(event); // Normalmente el valor se encuentra en ( event.detail.value )
+    return event
+}
+
   public newStudent():void{
-    //construir el objeto
+   
+    this.student = {controlnumber:$("#noControl").val() as string,name:$("#name").val() as string,curp:$("#curp").val() as string,age:$("#age").val() as number,nip:$("#nip").val() as number,email:$("#email").val() as string,career:$("#career").val() as string,photo:$("#photo").val() as string};
     this.studentService.newStudent(this.student);
+    console.log(this.student)
   }
 
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Guardado',
+      subHeader: 'Alumno guardado',
+      buttons: ['OK'],
+      
+    });
+   
+    await alert.present();
+    this.newStudent();
+  }
 }

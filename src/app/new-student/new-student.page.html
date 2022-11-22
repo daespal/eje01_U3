@@ -15,7 +15,11 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating"> Numero de Control</ion-label>
-            <ion-input formControlName="controlNumber"></ion-input
+            <ion-input
+              id="noControl"
+              type="text"
+              formControlName="controlNumber"
+            ></ion-input
           ></ion-item>
           <div>
             <ng-container
@@ -35,7 +39,7 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating"> Nombre</ion-label>
-            <ion-input formControlName="name"></ion-input
+            <ion-input id="name" type="text" formControlName="name"></ion-input
           ></ion-item>
           <div>
             <ng-container *ngFor="let item of validationMessages['name']">
@@ -52,8 +56,8 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating"> CURP</ion-label>
-            <ion-input formControlName="curp"></ion-input
+            <ion-label id="curp" position="floating"> CURP</ion-label>
+            <ion-input id="curp" type="text" formControlName="curp"></ion-input
           ></ion-item>
           <div>
             <ng-container *ngFor="let item of validationMessages['curp']">
@@ -70,8 +74,8 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating"> Edad</ion-label>
-            <ion-input formControlName="edad"></ion-input
+            <ion-label id="age" position="floating"> Edad</ion-label>
+            <ion-input id="age" type="number" formControlName="edad"></ion-input
           ></ion-item>
           <div>
             <ng-container *ngFor="let item of validationMessages['edad']">
@@ -85,7 +89,7 @@
           </div>
           <ion-item>
             <ion-label position="floating"> Nip</ion-label>
-            <ion-input formControlName="nip"></ion-input
+            <ion-input id="nip" type="number" formControlName="nip"></ion-input
           ></ion-item>
           <div>
             <ng-container *ngFor="let item of validationMessages['nip']">
@@ -103,7 +107,11 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating"> Email</ion-label>
-            <ion-input formControlName="email"></ion-input
+            <ion-input
+              id="email"
+              type="text"
+              formControlName="email"
+            ></ion-input
           ></ion-item>
           <div>
             <ng-container *ngFor="let item of validationMessages['email']">
@@ -157,7 +165,11 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating"> URL Foto</ion-label>
-            <ion-input formControlName="urlphoto"></ion-input
+            <ion-input
+              id="photo"
+              type="text"
+              formControlName="urlphoto"
+            ></ion-input
           ></ion-item>
           <div>
             <ng-container *ngFor="let item of validationMessages['urlphoto']">
@@ -177,7 +189,9 @@
     <ion-row>
       <ion-col>
         <ion-button color="medium" fill="outline">Cancelar</ion-button>
-        <ion-button color="medium" fill="outline">Guardar</ion-button>
+        <ion-button color="medium" fill="outline" (click)="presentAlert()"
+          >Guardar</ion-button
+        >
       </ion-col>
     </ion-row>
   </div>
